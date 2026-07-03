@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/index.php": {
-      "runtime": "vercel-php@0.7.2"
+      "runtime": "vercel-php@0.8.0"
     }
   },
   "routes": [
@@ -23,7 +23,6 @@
     "APP_ENV": "production",
     "APP_DEBUG": "false",
     "LOG_CHANNEL": "stderr",
-    "APP_KEY": "base64:UT8yYmEyM2g0ajVoNms3bDg5YTBiY2RlZmdodWprbG0="
-  },
-  "outputDirectory": "public"
+    "APP_KEY": "base64:yH6d76Z2oB9D+S/9j8/NfP0oZ9fT6+M3s8YjN6H8N2U="
+  }
 }

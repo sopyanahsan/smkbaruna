@@ -13,6 +13,9 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js"></script>
 
+    <!-- Favicon -->
+    <link rel="icon" href="/images/logosmk.webp" type="image/webp">
+
     @inertiaHead
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/app.jsx'])

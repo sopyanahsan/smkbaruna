@@ -250,76 +250,17 @@ function AlumniCarousel() {
   const [activeIndex, setActiveIndex] = useState(2); // default center Budi Santoso
   const count = alumni.length;
 
-  const themeMap = {
-    TJKT: {
-      bg: 'bg-blue-50/95 dark:bg-blue-950/70',
-      border: 'border-blue-300 dark:border-blue-900',
-      text: 'text-blue-950 dark:text-blue-100',
-      accentText: 'text-blue-600 dark:text-blue-400',
-      numColor: 'text-blue-500/20 dark:text-blue-400/20',
-      ring: 'ring-blue-400 dark:ring-blue-500',
-      badgeBg: 'bg-blue-100/80 dark:bg-blue-900/50',
-      badgeText: 'text-blue-800 dark:text-blue-300',
-      badgeBorder: 'border-blue-200 dark:border-blue-800',
-      icon: (
-        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-          <line x1="6" y1="6" x2="6.01" y2="6" />
-          <line x1="6" y1="18" x2="6.01" y2="18" />
-        </svg>
-      )
-    },
-    APHP: {
-      bg: 'bg-emerald-50/95 dark:bg-emerald-950/70',
-      border: 'border-emerald-300 dark:border-emerald-900',
-      text: 'text-emerald-950 dark:text-emerald-100',
-      accentText: 'text-emerald-600 dark:text-emerald-400',
-      numColor: 'text-emerald-500/20 dark:text-emerald-400/20',
-      ring: 'ring-emerald-400 dark:ring-emerald-500',
-      badgeBg: 'bg-emerald-100/80 dark:bg-emerald-900/50',
-      badgeText: 'text-emerald-800 dark:text-emerald-300',
-      badgeBorder: 'border-emerald-200 dark:border-emerald-800',
-      icon: (
-        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-        </svg>
-      )
-    },
-    TKRO: {
-      bg: 'bg-amber-50/95 dark:bg-amber-950/70',
-      border: 'border-amber-300 dark:border-amber-900',
-      text: 'text-amber-950 dark:text-amber-100',
-      accentText: 'text-amber-600 dark:text-amber-400',
-      numColor: 'text-amber-500/20 dark:text-amber-400/20',
-      ring: 'ring-amber-400 dark:ring-amber-500',
-      badgeBg: 'bg-amber-100/80 dark:bg-amber-900/50',
-      badgeText: 'text-amber-800 dark:text-amber-300',
-      badgeBorder: 'border-amber-200 dark:border-amber-800',
-      icon: (
-        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <circle cx="12" cy="12" r="3" />
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-        </svg>
-      )
-    },
-    MPLB: {
-      bg: 'bg-purple-50/95 dark:bg-purple-950/70',
-      border: 'border-purple-300 dark:border-purple-900',
-      text: 'text-purple-950 dark:text-purple-100',
-      accentText: 'text-purple-600 dark:text-purple-400',
-      numColor: 'text-purple-500/20 dark:text-purple-400/20',
-      ring: 'ring-purple-400 dark:ring-purple-500',
-      badgeBg: 'bg-purple-100/80 dark:bg-purple-900/50',
-      badgeText: 'text-purple-800 dark:text-purple-300',
-      badgeBorder: 'border-purple-200 dark:border-purple-800',
-      icon: (
-        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-        </svg>
-      )
-    }
+  const cardTheme = {
+    bg: 'bg-white dark:bg-slate-900',
+    border: 'border-slate-200 dark:border-slate-800',
+    text: 'text-slate-900 dark:text-slate-100',
+    quoteText: 'text-slate-600 dark:text-slate-400',
+    accentText: 'text-[#c59332]',
+    numColor: 'text-slate-200/60 dark:text-slate-800/60',
+    ring: 'ring-[#c59332]',
+    badgeBg: 'bg-slate-100 dark:bg-slate-800',
+    badgeText: 'text-slate-700 dark:text-slate-300',
+    badgeBorder: 'border-slate-200 dark:border-slate-700',
   };
 
   const next = () => setActiveIndex((activeIndex + 1) % count);
@@ -341,20 +282,14 @@ function AlumniCarousel() {
       {/* Flat Sliding Carousel Container with Peeking Blur */}
       <div className="relative mx-auto flex items-center justify-center overflow-visible" style={{ height: 380, maxWidth: 800 }}>
         {alumni.map((a, i) => {
-          const theme = themeMap[a.verticalText] || themeMap.TJKT;
-          
           let cardStyle = '';
           if (i === activeIndex) {
-            // Active: Center, scale 100/105, opacity 100, blur-none
             cardStyle = 'blur-none scale-100 sm:scale-105 opacity-100 z-30 pointer-events-auto';
           } else if (i === (activeIndex - 1 + count) % count) {
-            // Left Peeking: blur, scale 90, opacity 45, shifted visually left
-            cardStyle = 'blur-[2px] scale-90 opacity-45 -translate-x-[75%] sm:-translate-x-[110%] z-20 pointer-events-auto cursor-pointer';
+            cardStyle = 'blur-[1px] scale-90 opacity-40 -translate-x-[70%] sm:-translate-x-[105%] z-20 pointer-events-auto cursor-pointer';
           } else if (i === (activeIndex + 1) % count) {
-            // Right Peeking: blur, scale 90, opacity 45, shifted visually right
-            cardStyle = 'blur-[2px] scale-90 opacity-45 translate-x-[75%] sm:translate-x-[110%] z-20 pointer-events-auto cursor-pointer';
+            cardStyle = 'blur-[1px] scale-90 opacity-40 translate-x-[70%] sm:translate-x-[105%] z-20 pointer-events-auto cursor-pointer';
           } else {
-            // Hidden
             cardStyle = 'opacity-0 pointer-events-none scale-75 z-10';
           }
 
@@ -368,51 +303,49 @@ function AlumniCarousel() {
               className={`absolute transition-all duration-500 ease-out ${cardStyle}`}
               style={{ width: 285 }}
             >
-              <div className={`relative ${theme.bg} border-2 ${theme.border} rounded-3xl p-6 shadow-2xl flex flex-col justify-between h-[310px]`}>
-                {/* Transparant giant index number */}
-                <span className={`absolute top-4 right-6 font-display text-7xl font-extrabold select-none ${theme.numColor}`}>
+              <div className={`relative ${cardTheme.bg} border ${cardTheme.border} rounded-2xl p-6 shadow-xl flex flex-col justify-between h-[310px] overflow-hidden`}>
+                {/* Giant Background Number */}
+                <span className={`absolute -top-2 -right-2 font-display text-8xl font-black select-none ${cardTheme.numColor} italic opacity-50`}>
                   {a.index}
                 </span>
 
-                {/* Top contents */}
-                <div>
-                  {/* Rating stars */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(5)].map((_, starIdx) => (
-                      <svg key={starIdx} className={`w-4 h-4 fill-current ${theme.accentText}`} viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.17c.969 0 1.371 1.24.588 1.81l-3.376 2.455a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 15.347l-3.376 2.455c-.783.57-1.838-.197-1.538-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.632 9.384c-.783-.57-.38-1.81.588-1.81h4.17a1 1 0 00.95-.69l1.286-3.957z" />
-                      </svg>
-                    ))}
+                <div className="relative z-10">
+                  {/* Stars & Icon */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex gap-0.5">
+                      {[...Array(5)].map((_, starIdx) => (
+                        <svg key={starIdx} className="w-3.5 h-3.5 fill-[#c59332]" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.957a1 1 0 00.95.69h4.17c.969 0 1.371 1.24.588 1.81l-3.376 2.455a1 1 0 00-.364 1.118l1.286 3.957c.3.921-.755 1.688-1.538 1.118L10 15.347l-3.376 2.455c-.783.57-1.838-.197-1.538-1.118l1.286-3.957a1 1 0 00-.364-1.118L2.632 9.384c-.783-.57-.38-1.81.588-1.81h4.17a1 1 0 00.95-.69l1.286-3.957z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="text-[10px] font-black text-slate-400/50 uppercase tracking-tighter">{a.verticalText}</span>
                   </div>
 
                   {/* Quote */}
-                  <p className={`text-xs ${theme.text} leading-relaxed italic line-clamp-4 font-sans font-medium mb-6`}>
+                  <p className={`text-[13px] ${cardTheme.quoteText} leading-relaxed font-medium mb-6 relative`}>
+                    <span className="text-2xl text-[#c59332] absolute -left-4 -top-2 opacity-30 font-serif">"</span>
                     {a.quote}
                   </p>
                 </div>
 
                 {/* Bottom details */}
-                <div className="space-y-4">
-                  {/* Profile info */}
-                  <div className="flex items-center gap-3">
-                    <div className="relative">
-                      <img
-                        src={a.img}
-                        alt={a.name}
-                        className={`w-11 h-11 rounded-full object-cover ring-2 ring-offset-1 dark:ring-offset-slate-900 ${theme.ring} flex-shrink-0`}
-                      />
-                    </div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    <img
+                      src={a.img}
+                      alt={a.name}
+                      className="w-10 h-10 rounded-full object-cover border-2 border-[#c59332]/20 flex-shrink-0"
+                    />
                     <div className="min-w-0">
-                      <h4 className={`font-display text-sm font-extrabold ${theme.text} truncate`}>{a.name}</h4>
-                      <p className="text-[10px] text-slate-500 dark:text-slate-400 font-mono tracking-tight">{a.grad}</p>
+                      <h4 className={`font-display text-[13px] font-bold ${cardTheme.text} truncate`}>{a.name}</h4>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-500 font-medium tracking-tight truncate">{a.grad}</p>
                     </div>
                   </div>
 
-                  {/* Badge */}
-                  <div className="pt-2 border-t border-slate-200/50 dark:border-slate-800/50 flex items-center justify-between">
-                    <p className={`text-[10px] font-bold tracking-wider uppercase font-mono ${theme.accentText}`}>{a.role}</p>
-                    <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-bold ${theme.badgeBg} ${theme.badgeText} border ${theme.badgeBorder}`}>
-                      {theme.icon}
+                  <div className="flex items-center justify-between gap-2 pt-3 border-t border-slate-100 dark:border-slate-800">
+                    <span className="text-[9px] font-extrabold text-[#c59332] uppercase tracking-wider truncate">{a.role}</span>
+                    <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${cardTheme.badgeBg} ${cardTheme.badgeText} border ${cardTheme.badgeBorder} whitespace-nowrap`}>
                       {a.badge}
                     </span>
                   </div>
@@ -556,30 +489,42 @@ export default function HomeView() {
           </div>
 
           {/* Stats cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 w-full mt-auto pb-2">
-            <div className="backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-center transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] shadow-2xl shadow-black/20">
-              <p className="text-[11px] lg:text-xs font-bold tracking-widest text-[#c59332] uppercase mb-1">Program Keahlian</p>
-              <p className="text-3xl lg:text-4xl font-display font-extrabold mb-2 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent" data-count="4">0+</p>
-              <p className="text-xs text-slate-300 leading-relaxed">Empat jurusan unggulan siap cetak tenaga ahli profesional.</p>
+          <div className="grid grid-cols-3 gap-1 sm:gap-4 md:gap-5 w-[calc(100%+2rem)] -mx-4 md:w-full md:mx-0 mt-auto pb-4">
+            <div className="backdrop-blur-md bg-white/5 border border-white/10 p-2 sm:p-4 md:p-6 rounded-none sm:rounded-xl md:rounded-2xl flex flex-col justify-center transition-all duration-300 hover:bg-white/10 shadow-2xl shadow-black/20">
+              <p className="text-[8px] sm:text-[11px] lg:text-xs font-bold tracking-widest text-[#c59332] uppercase mb-1 truncate">Program Keahlian</p>
+              <p className="text-xl sm:text-3xl lg:text-4xl font-display font-extrabold mb-1 md:mb-2 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent" data-count="4">0+</p>
+              <p className="hidden md:block text-xs text-slate-300 leading-relaxed">Empat jurusan unggulan siap cetak tenaga ahli profesional.</p>
             </div>
-            <div className="backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-center transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] shadow-2xl shadow-black/20">
-              <p className="text-[11px] lg:text-xs font-bold tracking-widest text-[#c59332] uppercase mb-1">Mitra Industri</p>
-              <p className="text-3xl lg:text-4xl font-display font-extrabold mb-2 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent" data-count="20">0+</p>
-              <p className="text-xs text-slate-300 leading-relaxed">Jaringan kerja sama luas dengan dunia usaha dan industri.</p>
+            <div className="backdrop-blur-md bg-white/5 border border-white/10 p-2 sm:p-4 md:p-6 rounded-none sm:rounded-xl md:rounded-2xl flex flex-col justify-center transition-all duration-300 hover:bg-white/10 shadow-2xl shadow-black/20">
+              <p className="text-[8px] sm:text-[11px] lg:text-xs font-bold tracking-widest text-[#c59332] uppercase mb-1 truncate">Mitra Industri</p>
+              <p className="text-xl sm:text-3xl lg:text-4xl font-display font-extrabold mb-1 md:mb-2 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent" data-count="20">0+</p>
+              <p className="hidden md:block text-xs text-slate-300 leading-relaxed">Jaringan kerja sama luas dengan dunia usaha dan industri.</p>
             </div>
-            <div className="backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-center transition-all duration-300 hover:bg-white/10 hover:scale-[1.02] shadow-2xl shadow-black/20">
-              <p className="text-[11px] lg:text-xs font-bold tracking-widest text-[#c59332] uppercase mb-1">Keterserapan Lulusan</p>
-              <p className="text-3xl lg:text-4xl font-display font-extrabold mb-2 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent" data-count="95">0%</p>
-              <p className="text-xs text-slate-300 leading-relaxed">Lulusan terserap kerja dan wirausaha dalam 6 bulan.</p>
+            <div className="backdrop-blur-md bg-white/5 border border-white/10 p-2 sm:p-4 md:p-6 rounded-none sm:rounded-xl md:rounded-2xl flex flex-col justify-center transition-all duration-300 hover:bg-white/10 shadow-2xl shadow-black/20">
+              <p className="text-[8px] sm:text-[11px] lg:text-xs font-bold tracking-widest text-[#c59332] uppercase mb-1 truncate">Keterserapan</p>
+              <p className="text-xl sm:text-3xl lg:text-4xl font-display font-extrabold mb-1 md:mb-2 bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent" data-count="95">0%</p>
+              <p className="hidden md:block text-xs text-slate-300 leading-relaxed">Lulusan terserap kerja dan wirausaha dalam 6 bulan.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Section 2: Sambutan + Program Keahlian ──────────────────────── */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 w-full min-h-screen border-t border-neutral-300 dark:border-neutral-800">
+      {/* ── Section 2: Sambutan (Mobile) ─────────────────────────────────── */}
+      <div className="lg:hidden p-8 bg-[#f4f3ef] border-t border-neutral-300 dark:border-neutral-800">
+        <p className="text-[9px] font-bold tracking-widest text-[#b08128] uppercase">Kata Sambutan Pimpinan</p>
+        <h2 className="text-2xl font-display font-extrabold text-slate-950 mt-1">Sambutan Kepala Sekolah</h2>
+        <div className="text-sm text-slate-700 text-justify mt-4 space-y-3">
+          <p><span className="italic">Bismillahirrohmanirrahim. Assalamu'alaikum Wr. Wb.</span></p>
+          <p>Alhamdulillah, segala puji bagi Allah SWT atas karunia-Nya sehingga website resmi SMK Sulthan Baruna Cidaun, Cianjur ini dapat terus dikembangkan. Kami mengucapkan selamat datang kepada seluruh stakeholder, masyarakat, dan calon peserta didik baru.</p>
+          <p>Di era globalisasi saat ini, website sekolah sangat penting sebagai sarana penyedia informasi yang riil dan transparan. Melalui platform ini, kami berkomitmen menampilkan profil sekolah, perkembangan kurikulum vokasi, serta jalinan kerja sama strategis bersama dunia industri (IDUKA) yang dapat diakses secara mudah.</p>
+          <p>SMK Sulthan Baruna berkomitmen menyelenggarakan pendidikan kejuruan yang inovatif pada 4 Program Keahlian unggulan kami: APHP, MPLB, TKRO, dan TJKT. Kami mendidik setiap siswa agar tidak hanya unggul secara kompetensi teknis, tetapi juga tangguh menghadapi dinamika masa depan berlandaskan disiplin tinggi dan akhlak mulia. Mari terus bersinergi demi mencetak generasi emas vokasi yang kompeten dan siap kerja. <span className="italic">Wassalamu'alaikum Wr. Wb.</span></p>
+        </div>
+      </div>
+
+      {/* ── Section 2: Sambutan + Program Keahlian (Desktop) ──────────────── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 w-full min-h-screen border-t lg:border-t-0 border-neutral-300 dark:border-neutral-800">
         {/* Left: sticky photo + speech */}
-        <div className="relative lg:sticky lg:top-0 lg:h-screen overflow-hidden border-r border-neutral-300 dark:border-neutral-800">
+        <div className="hidden lg:block relative lg:sticky lg:top-0 h-screen overflow-hidden border-r border-neutral-300 dark:border-neutral-800">
           <img
             src="/images/section2.svg"
             alt="Drs. H. Sulthan Baruna"
@@ -712,7 +657,7 @@ export default function HomeView() {
       </section>
 
       {/* ── Section 4: Kisah Sukses Alumni – Compact Grid ────────────────── */}
-<div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto w-full max-w-6xl sm:px-6">
         <AlumniCarousel />
       </div>
 

@@ -15,7 +15,6 @@ import NewsView from './Views/NewsView';
 export default function App({ page }) {
   const [currentPage, setCurrentPage] = useState(page);
   const [currentSubPage, setCurrentSubPage] = useState(null);
-  const containerRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -45,32 +44,13 @@ export default function App({ page }) {
     return () => tl.kill();
   }, []);
 
-  // GSAP transition on page change
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
-      );
-    }
-  }, [currentPage]);
-
   const navigateTo = (page, subPage) => {
     if (isTransitioning) return;
     setIsTransitioning(true);
 
-    const tl = gsap.timeline({
-      onComplete: () => setIsTransitioning(false)
-    });
-
-    tl.to('.curtain', { yPercent: 0, duration: 0.4, ease: 'power2.out' })
-      .add(() => {
-        setCurrentPage(page);
-        setCurrentSubPage(subPage);
-      })
-      .to('.curtain', { yPercent: -100, duration: 0.5, ease: 'power2.in' })
-      .set('.curtain', { yPercent: 100 });
+    setCurrentPage(page);
+    setCurrentSubPage(subPage);
+    setIsTransitioning(false);
   };
 
       const renderView = () => {
@@ -90,7 +70,7 @@ export default function App({ page }) {
           case 'portal':
             return <PortalView />;
           case 'tentang':
-            return <TentangView subPage={currentSubPage || 'sejarah'} />;
+            return <TentangView subPage={currentSubPage || 'sejarah'} navigateTo={navigateTo} />;
           case 'news':
             return <NewsView />;
           default:
@@ -118,10 +98,9 @@ export default function App({ page }) {
           <div className="loader"></div>
         </div>
       )}
-      <div className="curtain fixed inset-0 z-50 bg-[#111111] translate-y-[100%] pointer-events-none" />
       <MainLayout currentPage={currentPage} navigate={navigateTo}>
         <Head title={titleMap[currentPage] || 'SMK Baruna'} />
-        <div ref={containerRef} style={{ opacity: 0 }}>
+        <div>
           {renderView()}
         </div>
       </MainLayout>

@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 const tentangSubItems = [
-    { key: 'prakata', label: 'Prakata Pimpinan' },
+    { key: 'prakata', label: 'Prakata Kepala Sekolah' },
     { key: 'manajemen', label: 'Guru dan Tata Usaha' },
     { key: 'visi-misi', label: 'Visi & Misi' },
     { key: 'sejarah', label: 'Sejarah Sekolah' },
